@@ -1,0 +1,43 @@
+﻿@using CDRecord.Data;
+@model List<Song>
+<table class="table table-secondary table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Author)
+            </th>
+            <th> Edit/Details/Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Length)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <a asp-page="/Songs/Edit" asp-route-id="@item.SongId" role="button" class="btn btn-warning btn-sm shadow-sm text-white">Edit</a>
+
+                        <a asp-page="/Songs/Details" asp-route-id="@item.SongId" role="button" class="btn btn-primary btn-sm shadow-sm">Details</a>
+
+                        <a asp-page="/Songs/Delete" asp-route-id="@item.SongId" role="button" class="btn btn-danger btn-sm shadow-sm">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

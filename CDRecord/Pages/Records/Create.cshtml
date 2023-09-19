@@ -1,0 +1,49 @@
+﻿@page
+@model CDRecord.Pages.Records.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="display-4">Create Record</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          
+            <div class="form-group">
+                <label asp-for="Record.ArtistName" class="control-label"></label>
+                <input placeholder="Artist" asp-for="Record.ArtistName" class="form-control" />
+                <span asp-validation-for="Record.ArtistName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Record.AlbumName" class="control-label"></label>
+                <input placeholder ="Album" asp-for="Record.AlbumName" class="form-control" />
+                <span asp-validation-for="Record.AlbumName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Record.ReleaseDate" class="control-label"></label>
+                <input asp-for="Record.ReleaseDate" class="form-control" />
+                <span asp-validation-for="Record.ReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Record.RecordCompany" class="control-label"></label>
+                <input placeholder="Company" asp-for="Record.RecordCompany" class="form-control" />
+                <span asp-validation-for="Record.RecordCompany" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index"class="text-dark">>Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,44 @@
+﻿@page
+@model CDRecord.Pages.Songs.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="display-4">Details Song</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        @*<dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Song.RecordId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Song.RecordId)
+        </dd>*@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Song.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Song.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Song.Length)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Song.Length)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Song.Author)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Song.Author)
+        </dd>
+    </dl>
+</div>
+<div>
+
+    <a asp-page="./Edit" asp-route-id="@Model.Song?.SongId" role="button" class="btn btn-warning btn-sm shadow-sm text-white">Edit</a> <br />
+
+    <a asp-page="/Records/Index" asp-route-id="@Model.Song?.SongId" class="text-dark">>Back to List</a>
+</div>

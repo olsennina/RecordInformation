@@ -1,0 +1,69 @@
+﻿@page
+@model CDRecord.Pages.Records.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="display-4">Record Library</h1>
+
+<table class="table table-secondary table-striped">
+    <thead>
+        <tr>
+            
+            <th>
+                <img src="https://picsum.photos/id/22/60" />
+                @Html.DisplayNameFor(model => model.Record[0].ArtistName)
+            </th>
+            <th>
+                <img src="https://picsum.photos/id/10/60" />
+                @Html.DisplayNameFor(model => model.Record[0].AlbumName)
+            </th>
+            <th>
+                <img src="https://picsum.photos/id/357/60" />
+                @Html.DisplayNameFor(model => model.Record[0].ReleaseDate)
+            </th>
+            <th>
+                <img src="https://picsum.photos/id/39/60" />
+                @Html.DisplayNameFor(model => model.Record[0].RecordCompany)
+   <th>
+    <button class="btn btn-success btn-sm">
+                    <a asp-page="Create" class="text-white text-decoration-none" asp-route-id="@Model.Record">Create A New Record</a>
+            </button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Record)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArtistName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AlbumName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecordCompany)
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-warning btn-sm">
+                            <a asp-page="./Edit" class="text-white text-decoration-none" asp-route-id="@item.RecordId">Edit</a>
+                        </button>
+                        <button class="btn btn-primary btn-sm">
+                            <a asp-page="./Details" class="text-white text-decoration-none" asp-route-id="@item.RecordId">Details</a>
+                        </button>
+                        <button class="btn btn-danger btn-sm">
+                            <a asp-page="./Delete" class="text-white text-decoration-none" asp-route-id="@item.RecordId">Delete</a>
+                        </button>
+                    </div>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

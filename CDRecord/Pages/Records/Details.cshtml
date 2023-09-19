@@ -1,0 +1,55 @@
+﻿@page
+@model CDRecord.Pages.Records.DetailsModel
+
+
+
+<h1 class="display-4">Album</h1>
+
+<div>
+    
+    <hr />
+   
+    <dl class="row">
+
+        @{
+            ViewData["Title"] = "Details";
+        }
+        
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Record.ArtistName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Record.ArtistName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Record.AlbumName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Record.AlbumName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Record.ReleaseDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Record.ReleaseDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Record.RecordCompany)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Record.RecordCompany)
+        </dd>
+       <dd class="col-sm-10">
+ <button class="btn btn-success btn-sm">
+    <a asp-page="/Songs/Create" class="text-white text-decoration-none" asp-route-id="@Model.Record?.RecordId">Add Song To Record</a>
+    </button>
+        </dd>
+        <dd class="col-sm-10">
+            @await Component.InvokeAsync("SongList", new {recordid=Model.Record.RecordId})
+            </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Index" class="text-dark">>Back to Record Library</a>
+    
+</div>
